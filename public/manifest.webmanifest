@@ -1,10 +1,24 @@
 {
-  "name": "portfolio-app",
-  "short_name": "portfolio-app",
+  "name": "Rahul E - Frontend Developer Portfolio",
+  "short_name": "Rahul E",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
+  "theme_color": "#050505",
+  "background_color": "#050505",
   "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
     {
       "src": "icons/icon-72x72.png",
       "sizes": "72x72",
@@ -36,20 +50,8 @@
       "purpose": "maskable any"
     },
     {
-      "src": "icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
       "src": "icons/icon-384x384.png",
       "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-512x512.png",
-      "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
     }

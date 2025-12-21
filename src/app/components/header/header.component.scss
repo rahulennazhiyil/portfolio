@@ -113,6 +113,10 @@
 /* Split text animation for name */
 .name .char {
   display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #00f5ff 50%, #ff2d75 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   animation: revealChar 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 

@@ -1,4 +1,5 @@
 import { Component, HostListener, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,6 +17,7 @@ import { GsapAnimationsService } from './services/gsap-animations.service';
 @Component({
   selector: 'app-root',
   imports: [
+    CommonModule,
     MatIconModule,
     MatButtonModule,
     HeaderComponent,

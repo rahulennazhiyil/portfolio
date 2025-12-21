@@ -8,6 +8,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { EducationComponent } from './components/education/education.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CertificatesComponent } from './components/certificates/certificates.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GsapAnimationsService } from './services/gsap-animations.service';
 
@@ -23,6 +24,7 @@ import { GsapAnimationsService } from './services/gsap-animations.service';
     EducationComponent,
     ProjectsComponent,
     CertificatesComponent,
+    ContactComponent,
     FooterComponent,
   ],
   templateUrl: './app.component.html',

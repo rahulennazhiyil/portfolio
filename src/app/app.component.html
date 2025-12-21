@@ -1,11 +1,11 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
   <div class="nav-container">
     <a href="#header" class="logo">Rahul E</a>
-    
+
     <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
       <mat-icon>{{ menuOpen ? 'close' : 'menu' }}</mat-icon>
     </button>
-    
+
     <ul class="nav-links" [class.open]="menuOpen">
       <li><a href="#header" (click)="closeMenu()">Home</a></li>
       <li><a href="#profile" (click)="closeMenu()">Profile</a></li>
@@ -14,6 +14,7 @@
       <li><a href="#education" (click)="closeMenu()">Education</a></li>
       <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
       <li><a href="#certificates" (click)="closeMenu()">Certificates</a></li>
+      <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -26,5 +27,6 @@
   <app-education></app-education>
   <app-projects></app-projects>
   <app-certificates></app-certificates>
+  <app-contact></app-contact>
   <app-footer></app-footer>
 </main>

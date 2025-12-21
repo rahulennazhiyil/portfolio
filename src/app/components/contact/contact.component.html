@@ -1,0 +1,102 @@
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title gradient-text">Get In Touch</h2>
+            <p class="section-subtitle">Have a project in mind? Let's work together!</p>
+        </div>
+
+        <div class="contact-content">
+            <!-- Contact Info -->
+            <div class="contact-info-card">
+                <h3>Contact Information</h3>
+                <div class="info-items">
+                    <div class="info-item">
+                        <mat-icon>email</mat-icon>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:rahuleprofessional@gmail.com">rahuleprofessional@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <mat-icon>location_on</mat-icon>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Available for remote opportunities</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <mat-icon>schedule</mat-icon>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>Within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-card">
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your Name</mat-label>
+                            <input matInput formControlName="name" placeholder="John Doe">
+                            <mat-icon matPrefix>person</mat-icon>
+                            <mat-error *ngIf="name?.invalid && name?.touched">
+                                {{ getErrorMessage('name') }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Your Email</mat-label>
+                            <input matInput formControlName="email" type="email" placeholder="john@example.com">
+                            <mat-icon matPrefix>email</mat-icon>
+                            <mat-error *ngIf="email?.invalid && email?.touched">
+                                {{ getErrorMessage('email') }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Subject</mat-label>
+                            <input matInput formControlName="subject" placeholder="Project Inquiry">
+                            <mat-icon matPrefix>subject</mat-icon>
+                            <mat-error *ngIf="subject?.invalid && subject?.touched">
+                                {{ getErrorMessage('subject') }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-row">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Message</mat-label>
+                            <textarea matInput formControlName="message" rows="6"
+                                placeholder="Tell me about your project..."></textarea>
+                            <mat-icon matPrefix>message</mat-icon>
+                            <mat-error *ngIf="message?.invalid && message?.touched">
+                                {{ getErrorMessage('message') }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- Submit Message -->
+                    <div *ngIf="submitMessage" class="submit-message" [class.success]="submitSuccess"
+                        [class.error]="!submitSuccess">
+                        <mat-icon>{{ submitSuccess ? 'check_circle' : 'error' }}</mat-icon>
+                        <p>{{ submitMessage }}</p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button mat-raised-button type="submit" class="submit-btn" [disabled]="isSubmitting">
+                        <mat-icon *ngIf="!isSubmitting">send</mat-icon>
+                        <mat-icon *ngIf="isSubmitting" class="spinning">sync</mat-icon>
+                        {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

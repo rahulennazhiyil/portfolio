@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -9,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  private viewportScroller = inject(ViewportScroller);
   roles: string[] = ['Frontend Developer', 'Angular Expert', 'Tech Enthusiast', 'Problem Solver'];
 
   currentRoleIndex = 0;
@@ -52,5 +54,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.startCycle();
       }, 50);
     }, 400);
+  }
+
+  scrollToContact(): void {
+    this.viewportScroller.scrollToAnchor('contact');
   }
 }

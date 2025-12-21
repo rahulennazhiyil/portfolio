@@ -113,9 +113,7 @@
 /* Split text animation for name */
 .name .char {
   display: inline-block;
-  opacity: 0;
-  transform: translateY(100%) rotateX(-90deg);
-  animation: revealChar 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  animation: revealChar 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .name .char:nth-child(1) {
@@ -144,15 +142,12 @@
 
 @keyframes revealChar {
   0% {
-    opacity: 0;
     transform: translateY(100%) rotateX(-90deg);
   }
   50% {
-    opacity: 0.5;
     transform: translateY(-10%) rotateX(10deg);
   }
   100% {
-    opacity: 1;
     transform: translateY(0%) rotateX(0deg);
   }
 }

@@ -1,0 +1,48 @@
+/* Footer Component - Cyberpunk Theme */
+
+.footer {
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+.copyright {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.copyright .name {
+  color: var(--neon-cyan);
+  font-weight: 600;
+}
+
+.tech-stack {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.tech-stack span {
+  background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}

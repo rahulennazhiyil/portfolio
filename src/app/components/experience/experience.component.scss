@@ -1,0 +1,130 @@
+/* Experience Component - Cyberpunk Theme */
+
+.experience-section {
+  padding: 100px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+  border-radius: 3px;
+  box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-pink);
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: -48px;
+  top: 30px;
+  width: 18px;
+  height: 18px;
+  background: var(--bg-dark);
+  border: 3px solid var(--neon-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+  z-index: 1;
+}
+
+.experience-item mat-card {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 245, 255, 0.15) !important;
+  border-radius: 20px !important;
+  transition: all 0.4s ease !important;
+}
+
+.experience-item mat-card:hover {
+  border-color: var(--neon-pink) !important;
+  box-shadow: 
+    0 0 40px rgba(255, 45, 117, 0.15),
+    inset 0 0 40px rgba(255, 45, 117, 0.02) !important;
+}
+
+mat-card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 5px;
+}
+
+mat-card-subtitle {
+  color: var(--text-secondary) !important;
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+mat-card-subtitle span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+mat-card-subtitle mat-icon {
+  color: var(--neon-pink);
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+mat-card-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+mat-card-content li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+mat-card-content li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--neon-cyan);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 25px;
+  }
+
+  .experience-item::before {
+    left: -33px;
+    width: 14px;
+    height: 14px;
+  }
+}

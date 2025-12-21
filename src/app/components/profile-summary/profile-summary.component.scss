@@ -1,0 +1,45 @@
+/* Profile Summary Component - Cyberpunk Theme */
+
+.profile-section {
+  padding: 100px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.profile-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 245, 255, 0.15) !important;
+  border-radius: 25px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.profile-card p {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.profile-card strong {
+  color: var(--neon-cyan);
+  font-weight: 600;
+}

@@ -1,0 +1,81 @@
+/* Education Component - Cyberpunk Theme */
+
+.education-section {
+  padding: 100px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.education-card {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(191, 0, 255, 0.2) !important;
+  border-radius: 25px !important;
+  text-align: center;
+  transition: all 0.4s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  box-shadow: 0 0 20px var(--neon-purple);
+}
+
+.education-card:hover {
+  border-color: var(--neon-purple) !important;
+  box-shadow: 0 0 50px rgba(191, 0, 255, 0.2) !important;
+}
+
+.education-icon {
+  font-size: 60px !important;
+  width: 60px !important;
+  height: 60px !important;
+  color: var(--neon-purple) !important;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px var(--neon-purple));
+}
+
+.degree {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.university {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.duration mat-icon {
+  color: var(--neon-pink);
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}

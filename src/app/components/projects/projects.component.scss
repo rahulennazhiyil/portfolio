@@ -1,0 +1,195 @@
+/* Projects Component - Cyberpunk Theme - Refined */
+
+.projects-section {
+  padding: 100px 20px;
+}
+
+.container h2 {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.project-card {
+  padding: 35px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 45, 117, 0.15) !important;
+  border-radius: 25px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF2D75, #BF00FF, #00F5FF);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: #FF2D75 !important;
+  box-shadow: 
+    0 0 50px rgba(255, 45, 117, 0.2),
+    0 0 100px rgba(0, 245, 255, 0.1),
+    inset 0 0 50px rgba(255, 45, 117, 0.03) !important;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Header */
+.project-card .mat-mdc-card-header {
+  padding: 0 0 20px 0 !important;
+}
+
+.project-card mat-icon[mat-card-avatar] {
+  background: linear-gradient(135deg, #FF2D75, #00F5FF) !important;
+  color: #050505 !important;
+  border-radius: 15px !important;
+  padding: 12px !important;
+  font-size: 28px !important;
+  width: 52px !important;
+  height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 20px rgba(255, 45, 117, 0.4);
+}
+
+.project-card .mat-mdc-card-title {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1.4rem !important;
+  background: linear-gradient(90deg, #FF2D75, #00F5FF) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  margin: 0 0 5px 0 !important;
+}
+
+.project-card .mat-mdc-card-subtitle {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.9rem !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Card Content */
+.project-card .mat-mdc-card-content {
+  padding: 0 !important;
+}
+
+.project-description {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 25px !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Tech Stack Section - Key Fix */
+.tech-stack {
+  margin-bottom: 25px;
+}
+
+.tech-stack strong {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #BF00FF !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  display: block !important;
+  margin-bottom: 15px !important;
+  text-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+}
+
+.tech-stack mat-chip-set {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+/* Tech Stack Chips - Clean and Readable */
+.tech-stack mat-chip,
+.tech-stack .mat-mdc-chip {
+  background: rgba(191, 0, 255, 0.1) !important;
+  border: 1px solid rgba(191, 0, 255, 0.4) !important;
+  border-radius: 9px !important;
+  padding: 6px 14px !important;
+  height: auto !important;
+  min-height: 32px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Tech Stack Chip Text - Key Fix */
+.tech-stack .mat-mdc-chip .mdc-evolution-chip__text-label,
+.tech-stack .mat-mdc-chip .mat-mdc-chip-action-label,
+.tech-stack mat-chip {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: #BF00FF !important;
+  letter-spacing: 0.3px !important;
+  line-height: 1.4 !important;
+}
+
+.tech-stack mat-chip:hover,
+.tech-stack .mat-mdc-chip:hover {
+  background: rgba(191, 0, 255, 0.25) !important;
+  border-color: #BF00FF !important;
+  box-shadow: 0 0 15px rgba(191, 0, 255, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Project Highlights */
+.project-highlights {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.project-highlights li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.project-highlights li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: #FF2D75;
+  font-size: 0.6rem;
+  top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 25px !important;
+  }
+
+  .project-card .mat-mdc-card-title {
+    font-size: 1.2rem !important;
+  }
+}

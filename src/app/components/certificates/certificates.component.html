@@ -1,0 +1,17 @@
+<section id="certificates" class="certificates-section fade-in-up">
+  <div class="container">
+    <h2>Certificates</h2>
+    
+    <div class="certificates-grid">
+      <mat-card class="certificate-card" *ngFor="let cert of certificates">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>verified</mat-icon>
+          <mat-card-title>{{ cert.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ cert.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

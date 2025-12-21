@@ -1,0 +1,51 @@
+<section id="skills" class="skills-section fade-in-up">
+  <div class="container">
+    <h2>Technical Skills</h2>
+    
+    <div class="skills-grid">
+      <mat-card class="skill-category" appTilt [maxTilt]="5">
+        <mat-card-header>
+          <mat-card-title>Core Frontend</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-chip-set>
+            <mat-chip *ngFor="let skill of coreFrontend">{{ skill }}</mat-chip>
+          </mat-chip-set>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="skill-category" appTilt [maxTilt]="5">
+        <mat-card-header>
+          <mat-card-title>DevOps & Tools</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-chip-set>
+            <mat-chip *ngFor="let skill of devOpsTools">{{ skill }}</mat-chip>
+          </mat-chip-set>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="skill-category" appTilt [maxTilt]="5">
+        <mat-card-header>
+          <mat-card-title>Collaboration</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-chip-set>
+            <mat-chip *ngFor="let skill of collaboration">{{ skill }}</mat-chip>
+          </mat-chip-set>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="skill-category" appTilt [maxTilt]="5">
+        <mat-card-header>
+          <mat-card-title>Soft Skills</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-chip-set>
+            <mat-chip *ngFor="let skill of softSkills">{{ skill }}</mat-chip>
+          </mat-chip-set>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

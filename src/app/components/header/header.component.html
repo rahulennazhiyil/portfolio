@@ -1,0 +1,43 @@
+<section id="header" class="header-section fade-in">
+  <div class="container">
+    <div class="hero-content">
+      <div class="profile-image-container">
+        <img src="images/portfolio_pic.jpg" alt="Rahul E Profile" class="profile-image" />
+      </div>
+
+      <div class="hero-text">
+        <h1 class="name gradient-text">Rahul E</h1>
+        <h2 class="title" [class.animating]="isAnimating">
+          <span class="role-text" [attr.data-text]="displayText">{{ displayText }}</span>
+        </h2>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <mat-icon>email</mat-icon>
+            <a href="mailto:rahulennazhiyil6@gmail.com">rahulennazhiyil6@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <mat-icon>phone</mat-icon>
+            <span>+91 7025016399</span>
+          </div>
+          <div class="contact-item">
+            <mat-icon>location_on</mat-icon>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://linkedin.com/in/rahul-ennazhiyil" target="_blank" rel="noopener" mat-raised-button
+            color="primary">
+            <mat-icon>work</mat-icon>
+            LinkedIn
+          </a>
+          <a href="https://github.com/rahulennazhiyil" target="_blank" rel="noopener" mat-raised-button color="accent">
+            <mat-icon>code</mat-icon>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

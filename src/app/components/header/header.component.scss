@@ -1,0 +1,300 @@
+/* Header/Hero Section - Cyberpunk Theme */
+
+.header-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 40px;
+}
+
+/* Animated background elements */
+.header-section::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 45, 117, 0.2) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  animation: floatOrb 8s ease-in-out infinite;
+}
+
+.header-section::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.15) 0%, transparent 70%);
+  bottom: -50px;
+  left: -50px;
+  animation: floatOrb 10s ease-in-out infinite reverse;
+}
+
+@keyframes floatOrb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  z-index: 10;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.profile-image-container {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.profile-image {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: linear-gradient(#050505, #050505) padding-box,
+    linear-gradient(135deg, #ff2d75, #00f5ff) border-box;
+  object-fit: cover;
+  position: relative;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d75, #bf00ff, #00f5ff);
+  z-index: -1;
+  filter: blur(15px);
+  opacity: 0.6;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.3), 0 0 60px rgba(255, 45, 117, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(0, 245, 255, 0.5), 0 0 100px rgba(255, 45, 117, 0.3);
+  }
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, #00f5ff 50%, #ff2d75 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== ROLE TEXT - CLEAN & READABLE ========== */
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  min-height: 2.4rem;
+}
+
+/* Role text - clean color, explicitly override inherited transparent text-fill */
+.role-text {
+  display: inline-block;
+  color: #00f5ff !important;
+  -webkit-text-fill-color: #00f5ff !important;
+  background: none !important;
+  background-clip: unset !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Animate in when animating class is present */
+.title.animating .role-text {
+  animation: roleIn 0.4s ease-out forwards;
+}
+
+/* Animate out when animating class is removed */
+.title:not(.animating) .role-text {
+  animation: roleOut 0.3s ease-in forwards;
+}
+
+@keyframes roleIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes roleOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+/* ========== END ROLE TEXT ========== */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  color: #00f5ff;
+  transform: translateX(10px);
+}
+
+.contact-item mat-icon {
+  color: #ff2d75;
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 8px #ff2d75);
+}
+
+.contact-item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #00f5ff;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid #ff2d75;
+  border-radius: 30px;
+  color: #ff2d75;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #00f5ff, #ff2d75);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.social-links a:hover {
+  color: #050505;
+  border-color: transparent;
+  box-shadow: 0 0 30px #ff2d75, 0 0 60px #00f5ff;
+}
+
+.social-links a:hover::before {
+  left: 0;
+}
+
+.social-links mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .name {
+    font-size: 3.5rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .contact-info {
+    align-items: center;
+  }
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    font-size: 3rem;
+  }
+  .name {
+    font-size: 2.5rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .social-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  .social-links a {
+    width: 100%;
+    justify-content: center;
+  }
+}

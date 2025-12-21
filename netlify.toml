@@ -1,0 +1,14 @@
+# Netlify configuration for Angular application
+
+[build]
+  # Build command for Angular production build
+  command = "npm run build"
+  
+  # Output directory where Angular builds to (dist/portfolio-app/browser for Angular 19+)
+  publish = "dist/portfolio-app/browser"
+
+# Redirect all requests to index.html for Angular routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

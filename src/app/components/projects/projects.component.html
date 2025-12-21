@@ -1,7 +1,7 @@
 <section id="projects" class="projects-section fade-in-up">
   <div class="container">
     <h2>Projects</h2>
-    
+
     <div class="projects-grid">
       <mat-card class="project-card" *ngFor="let project of projects" appTilt [maxTilt]="10" [scale]="1.02">
         <mat-card-header>
@@ -11,17 +11,23 @@
         </mat-card-header>
         <mat-card-content>
           <p class="project-description">{{ project.description }}</p>
-          
+
           <div class="tech-stack">
             <strong>Tech Stack:</strong>
             <mat-chip-set>
               <mat-chip *ngFor="let tech of project.techStack">{{ tech }}</mat-chip>
             </mat-chip-set>
           </div>
-          
+
+
           <ul class="project-highlights">
             <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
           </ul>
+
+          <a *ngIf="project.link" [href]="project.link" target="_blank" rel="noopener" class="project-link">
+            <mat-icon>link</mat-icon>
+            View Project
+          </a>
         </mat-card-content>
       </mat-card>
     </div>

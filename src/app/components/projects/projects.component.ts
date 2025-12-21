@@ -11,6 +11,7 @@ interface Project {
   domain: string;
   techStack: string[];
   highlights: string[];
+  link?: string;
 }
 
 @Component({
@@ -34,6 +35,7 @@ export class ProjectsComponent {
         'Ensured cross-browser compatibility and responsive UI design to support multiple device formats.',
         'Contributed to CI/CD workflow enhancements through Azure DevOps and Git for faster, version-controlled front-end deployment cycles.',
       ],
+      link: 'https://finchscan.com/home/en',
     },
     {
       title: 'FinchCOMPLY – Compliance Management System',

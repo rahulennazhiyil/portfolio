@@ -39,11 +39,5 @@ export class CertificatesComponent {
         'Utilized advanced prompt engineering techniques with ChatGPT, similar to GitHub Copilot, to develop practical AI applications and prototypes.',
       link: 'https://badges.plus.columbia.edu/da0875a6-67fd-423f-ae57-3fb9adb65f37#acc.AfKOWQoz',
     },
-    {
-      title: 'FinchScan Certification',
-      description:
-        'Professional certification demonstrating expertise in financial technology and scanning solutions.',
-      link: 'https://finchscan.com/home/en',
-    },
   ];
 }

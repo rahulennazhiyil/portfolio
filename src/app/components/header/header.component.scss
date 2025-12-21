@@ -208,7 +208,8 @@
   margin-top: 2.5rem;
 }
 
-.social-links a {
+.social-links a,
+.social-links button {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -227,7 +228,8 @@
   overflow: hidden;
 }
 
-.social-links a::before {
+.social-links a::before,
+.social-links button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -239,13 +241,14 @@
   z-index: -1;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links button:hover {
   color: #050505;
   border-color: transparent;
-  box-shadow: 0 0 30px #ff2d75, 0 0 60px #00f5ff;
 }
 
-.social-links a:hover::before {
+.social-links a:hover::before,
+.social-links button:hover::before {
   left: 0;
 }
 

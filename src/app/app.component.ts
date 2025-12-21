@@ -9,6 +9,7 @@ import { EducationComponent } from './components/education/education.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CertificatesComponent } from './components/certificates/certificates.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GsapAnimationsService } from './services/gsap-animations.service';
 
@@ -25,6 +26,7 @@ import { GsapAnimationsService } from './services/gsap-animations.service';
     ProjectsComponent,
     CertificatesComponent,
     ContactComponent,
+    LoaderComponent,
     FooterComponent,
   ],
   templateUrl: './app.component.html',
@@ -34,6 +36,7 @@ export class AppComponent implements AfterViewInit {
   title = 'Rahul E - Portfolio';
   isScrolled = false;
   menuOpen = false;
+  isLoading = true;
 
   constructor(private gsapService: GsapAnimationsService) {}
 
@@ -52,5 +55,9 @@ export class AppComponent implements AfterViewInit {
 
   closeMenu() {
     this.menuOpen = false;
+  }
+
+  onLoadingComplete() {
+    this.isLoading = false;
   }
 }

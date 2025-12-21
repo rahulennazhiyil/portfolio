@@ -1,31 +1,37 @@
-<nav class="navbar" [class.scrolled]="isScrolled">
-  <div class="nav-container">
-    <a href="#header" class="logo">Rahul E</a>
+<!-- Loader -->
+<app-loader *ngIf="isLoading" (loadingComplete)="onLoadingComplete()"></app-loader>
 
-    <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
-      <mat-icon>{{ menuOpen ? 'close' : 'menu' }}</mat-icon>
-    </button>
+<!-- Main Content -->
+<div *ngIf="!isLoading">
+  <nav class="navbar" [class.scrolled]="isScrolled">
+    <div class="nav-container">
+      <a href="#header" class="logo">Rahul E</a>
 
-    <ul class="nav-links" [class.open]="menuOpen">
-      <li><a href="#header" (click)="closeMenu()">Home</a></li>
-      <li><a href="#profile" (click)="closeMenu()">Profile</a></li>
-      <li><a href="#skills" (click)="closeMenu()">Skills</a></li>
-      <li><a href="#experience" (click)="closeMenu()">Experience</a></li>
-      <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
-      <li><a href="#certificates" (click)="closeMenu()">Certificates</a></li>
-      <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+      <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
+        <mat-icon>{{ menuOpen ? 'close' : 'menu' }}</mat-icon>
+      </button>
 
-<main>
-  <app-header></app-header>
-  <app-profile-summary></app-profile-summary>
-  <app-skills></app-skills>
-  <app-experience></app-experience>
-  <app-education></app-education>
-  <app-projects></app-projects>
-  <app-certificates></app-certificates>
-  <app-contact></app-contact>
-  <app-footer></app-footer>
-</main>
+      <ul class="nav-links" [class.open]="menuOpen">
+        <li><a href="#header" (click)="closeMenu()">Home</a></li>
+        <li><a href="#profile" (click)="closeMenu()">Profile</a></li>
+        <li><a href="#skills" (click)="closeMenu()">Skills</a></li>
+        <li><a href="#experience" (click)="closeMenu()">Experience</a></li>
+        <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
+        <li><a href="#certificates" (click)="closeMenu()">Certificates</a></li>
+        <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <app-header></app-header>
+    <app-profile-summary></app-profile-summary>
+    <app-skills></app-skills>
+    <app-experience></app-experience>
+    <app-education></app-education>
+    <app-projects></app-projects>
+    <app-certificates></app-certificates>
+    <app-contact></app-contact>
+    <app-footer></app-footer>
+  </main>
+</div>

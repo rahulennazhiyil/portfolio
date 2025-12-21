@@ -7,11 +7,14 @@
 .section-title {
   text-align: center;
   margin-bottom: 60px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
 }
 
 .certificates-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
@@ -23,7 +26,6 @@
   backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(0, 255, 136, 0.15) !important;
   border-radius: 20px !important;
-  text-align: center;
   transition: all 0.4s ease !important;
   position: relative;
   overflow: hidden;
@@ -37,38 +39,94 @@
   transform: translateX(-50%);
   width: 50%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+  background: linear-gradient(90deg, transparent, #00ff88, transparent);
   transition: width 0.3s ease;
 }
 
 .certificate-card:hover {
-  border-color: var(--neon-green) !important;
+  border-color: #00ff88 !important;
   box-shadow: 0 0 40px rgba(0, 255, 136, 0.15) !important;
+  transform: translateY(-5px);
 }
 
 .certificate-card:hover::before {
   width: 100%;
 }
 
-.certificate-icon {
-  font-size: 50px !important;
-  width: 50px !important;
-  height: 50px !important;
-  color: var(--neon-green) !important;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px var(--neon-green));
+/* Material Card Overrides */
+::ng-deep .certificate-card {
+  .mat-mdc-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .mat-mdc-card-avatar {
+    color: #00ff88 !important;
+    font-size: 40px !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 15px !important;
+    filter: drop-shadow(0 0 10px #00ff88);
+  }
+
+  .mat-mdc-card-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0 !important;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  .mat-mdc-card-content {
+    padding: 0 !important;
+  }
+
+  .mat-mdc-card-content p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: left;
+  }
 }
 
-.certificate-name {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  margin-bottom: 10px;
-}
-
-.certificate-issuer {
-  color: var(--neon-green);
+/* Certificate Link */
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #00ff88, #00f5ff);
+  color: #050505;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
   font-size: 0.9rem;
-  font-weight: 500;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.cert-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+}
+
+.cert-link mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
 }

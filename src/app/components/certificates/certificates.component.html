@@ -3,19 +3,22 @@
     <h2 class="section-title gradient-text">Certification</h2>
 
     <div class="certificates-grid">
-      <mat-card class="certificate-card" *ngFor="let cert of certificates">
-        <mat-card-header>
-          <mat-icon mat-card-avatar>verified</mat-icon>
-          <mat-card-title>{{ cert.title }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ cert.description }}</p>
-          <a *ngIf="cert.link" [href]="cert.link" target="_blank" rel="noopener" class="cert-link">
-            <mat-icon>open_in_new</mat-icon>
-            View Certificate
-          </a>
-        </mat-card-content>
-      </mat-card>
+      <a *ngFor="let cert of certificates" [href]="cert.link || '#'" [target]="cert.link ? '_blank' : '_self'"
+        [rel]="cert.link ? 'noopener' : ''" class="cert-card-link" [class.no-link]="!cert.link">
+        <mat-card class="certificate-card">
+          <mat-card-header>
+            <mat-icon mat-card-avatar>verified</mat-icon>
+            <mat-card-title>{{ cert.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ cert.description }}</p>
+            <span *ngIf="cert.link" class="view-indicator">
+              <mat-icon>open_in_new</mat-icon>
+              Click to view certificate
+            </span>
+          </mat-card-content>
+        </mat-card>
+      </a>
     </div>
   </div>
 </section>

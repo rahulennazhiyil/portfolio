@@ -365,4 +365,73 @@ export class GsapAnimationsService {
       ScrollTrigger.refresh();
     }, 100);
   }
+
+  // ========== PHASE 3: ADVANCED MOTION DESIGN ========== //
+
+  // Text scramble effect
+  scrambleText(element: HTMLElement, finalText: string, duration = 1000) {
+    const chars = '!<>-_\\/[]{}—=+*^?#________';
+    let iteration = 0;
+    const iterations = finalText.length;
+    const interval = setInterval(() => {
+      element.textContent = finalText
+        .split('')
+        .map((char, index) => {
+          if (index < iteration) return finalText[index];
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join('');
+      if (iteration >= iterations) clearInterval(interval);
+      iteration += 1 / 3;
+    }, duration / iterations);
+  }
+
+  // Card tilt effect
+  createCardTilt(selector: string, maxTilt = 10) {
+    const cards = document.querySelectorAll(selector);
+    cards.forEach((card) => {
+      const el = card as HTMLElement;
+      el.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * maxTilt;
+        const rotateY = ((centerX - x) / centerX) * maxTilt;
+        gsap.to(el, {
+          rotateX,
+          rotateY,
+          duration: 0.3,
+          transformPerspective: 1000,
+          ease: 'power2.out',
+        });
+      });
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, { rotateX: 0, rotateY: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+      });
+    });
+  }
+
+  // Stagger fade-in
+  staggerFadeIn(selector: string, staggerAmount = 0.1) {
+    const elements = document.querySelectorAll(selector);
+    if (elements.length === 0) return;
+    gsap.fromTo(
+      elements,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: staggerAmount,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: elements[0],
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  }
 }

@@ -54,37 +54,37 @@ export class GsapAnimationsService {
     });
   }
 
-  // Hero entrance animation
+  // Hero entrance animation - Subtle and elegant
   animateHeroEntrance() {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
     tl.fromTo(
       '.profile-image-container',
-      { scale: 0, rotation: -180, opacity: 0 },
-      { scale: 1, rotation: 0, opacity: 1, duration: 1.2 }
+      { scale: 0.95, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1 }
     )
       .fromTo(
         '.hero-text .name',
-        { x: -100, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8 },
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8 },
         '-=0.6'
       )
       .fromTo(
         '.hero-text .title',
-        { x: -100, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8 },
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8 },
         '-=0.5'
       )
       .fromTo(
         '.contact-info .contact-item',
-        { x: -50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, stagger: 0.1 },
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 },
         '-=0.4'
       )
       .fromTo(
         '.social-links a, .social-links button',
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5, stagger: 0.15 },
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1 },
         '-=0.3'
       );
 
@@ -109,7 +109,7 @@ export class GsapAnimationsService {
     });
   }
 
-  // Skill chips animation
+  // Skill chips animation - Minimal fade-up
   animateSkillChips() {
     const chips = document.querySelectorAll('.skill-category mat-chip');
 
@@ -117,16 +117,14 @@ export class GsapAnimationsService {
       chips,
       {
         opacity: 0,
-        scale: 0.8,
-        rotateY: 90,
+        y: 15,
       },
       {
         opacity: 1,
-        scale: 1,
-        rotateY: 0,
-        duration: 0.6,
-        stagger: 0.05,
-        ease: 'back.out(1.5)',
+        y: 0,
+        duration: 0.5,
+        stagger: 0.03,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: '.skill-category',
           start: 'top 75%',
@@ -136,7 +134,7 @@ export class GsapAnimationsService {
     );
   }
 
-  // Project cards with 3D effect
+  // Project cards - Smooth fade-up
   animateProjectCards() {
     const cards = document.querySelectorAll('.project-card');
 
@@ -145,18 +143,14 @@ export class GsapAnimationsService {
         card,
         {
           opacity: 0,
-          y: 100,
-          rotateX: -15,
-          scale: 0.9,
+          y: 40,
         },
         {
           opacity: 1,
           y: 0,
-          rotateX: 0,
-          scale: 1,
-          duration: 0.8,
-          delay: index * 0.2,
-          ease: 'power3.out',
+          duration: 0.7,
+          delay: index * 0.15,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: card,
             start: 'top 80%',
@@ -164,42 +158,22 @@ export class GsapAnimationsService {
           },
         }
       );
-
-      // Add hover tilt effect
-      card.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-          scale: 1.05,
-          rotateY: 5,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      });
-
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-          scale: 1,
-          rotateY: 0,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      });
     });
   }
 
-  // Contact form animation
+  // Contact form animation - Subtle fade-up
   animateContactForm() {
     const formFields = document.querySelectorAll('.contact-form-card .form-row');
     const infoCard = document.querySelector('.contact-info-card');
 
     gsap.fromTo(
       infoCard,
-      { opacity: 0, x: -100, rotateY: -20 },
+      { opacity: 0, y: 30 },
       {
         opacity: 1,
-        x: 0,
-        rotateY: 0,
-        duration: 0.8,
-        ease: 'power3.out',
+        y: 0,
+        duration: 0.7,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: '.contact-section',
           start: 'top 70%',
@@ -210,14 +184,13 @@ export class GsapAnimationsService {
 
     gsap.fromTo(
       formFields,
-      { opacity: 0, x: 100, rotateY: 20 },
+      { opacity: 0, y: 30 },
       {
         opacity: 1,
-        x: 0,
-        rotateY: 0,
+        y: 0,
         duration: 0.6,
-        stagger: 0.1,
-        ease: 'power3.out',
+        stagger: 0.08,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: '.contact-form-card',
           start: 'top 75%',
@@ -258,7 +231,7 @@ export class GsapAnimationsService {
     });
   }
 
-  // Smooth scroll reveal for section titles
+  // Smooth scroll reveal for section titles - Elegant fade-up
   animateSectionTitles() {
     const titles = document.querySelectorAll('.section-title');
 
@@ -267,15 +240,13 @@ export class GsapAnimationsService {
         title,
         {
           opacity: 0,
-          y: 50,
-          scale: 0.8,
+          y: 30,
         },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: 'back.out(1.5)',
+          duration: 0.7,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: title,
             start: 'top 85%',

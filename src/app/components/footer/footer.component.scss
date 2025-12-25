@@ -1,4 +1,4 @@
-/* Footer Component - Cyberpunk Theme */
+/* Footer Component - Minimal Design */
 
 .footer {
   padding: 60px 20px;
@@ -14,7 +14,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
+  background: var(--border-subtle);
 }
 
 .footer-content {
@@ -23,26 +23,24 @@
 }
 
 .copyright {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-bottom: 15px;
+  font-size: 0.875rem;
+  margin-bottom: 12px;
 }
 
 .copyright .name {
-  color: var(--neon-cyan);
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .tech-stack {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
 }
 
 .tech-stack span {
-  background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 600;
+  color: var(--text-secondary);
+  font-weight: 500;
 }

@@ -1,45 +1,49 @@
-/* Profile Summary Component - Cyberpunk Theme */
+/* Profile Summary Component - Estrela Inspired Minimalist Design */
 
 .profile-section {
-  padding: 100px 20px;
+  padding: clamp(80px, 12vw, 140px) clamp(20px, 5vw, 80px);
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: clamp(40px, 8vw, 80px);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
 }
 
 .profile-card {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(0, 245, 255, 0.15) !important;
-  border-radius: 25px !important;
+  padding: clamp(30px, 5vw, 50px);
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.profile-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
-  box-shadow: 0 0 20px var(--neon-cyan);
+.profile-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .profile-card p {
   color: var(--text-secondary);
-  font-size: 1.15rem;
-  line-height: 1.9;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.8;
   text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
 }
 
 .profile-card strong {
-  color: var(--neon-cyan);
+  color: var(--text-primary);
   font-weight: 600;
 }

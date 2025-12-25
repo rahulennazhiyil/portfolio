@@ -1,54 +1,38 @@
-/* Skills Component - Cyberpunk Theme - Refined */
+/* Skills Component - Minimal Editorial Design */
 
 .skills-section {
-  padding: 100px 20px;
+  padding: clamp(80px, 12vw, 120px) clamp(20px, 5vw, 80px);
 }
 
 .container h2 {
   text-align: center;
   display: block;
   width: 100%;
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 4rem;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 24px;
 }
 
 .skill-category {
-  padding: 30px !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(0, 245, 255, 0.15) !important;
-  border-radius: 20px !important;
-  transition: all 0.4s ease !important;
+  padding: 32px !important;
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative;
   overflow: hidden;
 }
 
-.skill-category::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #00F5FF, #FF2D75);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-
 .skill-category:hover {
-  border-color: #00F5FF !important;
-  box-shadow: 
-    0 0 40px rgba(0, 245, 255, 0.15),
-    inset 0 0 40px rgba(0, 245, 255, 0.02) !important;
-}
-
-.skill-category:hover::before {
-  transform: scaleX(1);
+  border-color: var(--border-hover) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-lg) !important;
 }
 
 /* Card Title Styling */
@@ -57,13 +41,12 @@
 }
 
 .skill-category .mat-mdc-card-title {
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 1.1rem !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.25rem !important;
   font-weight: 600 !important;
-  color: #FF2D75 !important;
-  text-shadow: 0 0 15px rgba(255, 45, 117, 0.5);
+  color: var(--text-primary) !important;
   margin: 0 !important;
-  letter-spacing: 1px;
+  letter-spacing: -0.01em !important;
 }
 
 /* Card Content */
@@ -75,53 +58,52 @@
 .skill-category mat-chip-set {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 10px !important;
+  gap: 8px !important;
 }
 
-/* Individual Skill Chips - Clean and Readable */
+/* Individual Skill Chips - Minimal */
 .skill-category mat-chip,
 .skill-category .mat-mdc-chip {
-  background: rgba(0, 245, 255, 0.08) !important;
-  border: 1px solid rgba(0, 245, 255, 0.4) !important;
-  border-radius: 9px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
   padding: 6px 14px !important;
   height: auto !important;
   min-height: 32px !important;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Chip Text Styling - Key Fix */
+/* Chip Text Styling */
 .skill-category .mat-mdc-chip .mdc-evolution-chip__text-label,
 .skill-category .mat-mdc-chip .mat-mdc-chip-action-label,
 .skill-category mat-chip {
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: 0.85rem !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875rem !important;
   font-weight: 500 !important;
-  color: #00F5FF !important;
-  letter-spacing: 0.3px !important;
+  color: var(--text-primary) !important;
+  letter-spacing: 0.01em !important;
   line-height: 1.4 !important;
 }
 
 /* Chip Hover State */
 .skill-category mat-chip:hover,
 .skill-category .mat-mdc-chip:hover {
-  background: rgba(0, 245, 255, 0.2) !important;
-  border-color: #00F5FF !important;
-  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--border-hover) !important;
   transform: translateY(-2px) !important;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .skills-section {
-    padding: 60px 15px;
+    padding: 60px 20px;
   }
 
   .skill-category {
-    padding: 25px !important;
+    padding: 24px !important;
   }
 
   .skill-category .mat-mdc-card-title {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
   }
 }

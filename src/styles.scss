@@ -1,39 +1,37 @@
 /* =========================================
-   CYBERPUNK NEON PORTFOLIO THEME
-   A vibrant, unique, and standout design
+   ESTRELA STUDIO INSPIRED PORTFOLIO
+   Minimalist, Editorial, Premium Design
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 @import '@angular/material/prebuilt-themes/azure-blue.css';
 
 /* ========== COLOR PALETTE ========== */
 :root {
-  /* Primary Neon Colors */
-  --neon-pink: #FF2D75;
-  --neon-cyan: #00F5FF;
-  --neon-purple: #BF00FF;
-  --neon-green: #00FF88;
-  --neon-orange: #FF6A00;
-  
-  /* Gradient Combinations */
-  --gradient-primary: linear-gradient(135deg, var(--neon-pink) 0%, var(--neon-purple) 50%, var(--neon-cyan) 100%);
-  --gradient-accent: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
-  --gradient-glow: linear-gradient(135deg, rgba(255, 45, 117, 0.3), rgba(0, 245, 255, 0.3));
-  
   /* Backgrounds */
-  --bg-dark: #050505;
-  --bg-secondary: #0A0A0A;
-  --bg-card: rgba(15, 15, 20, 0.7);
-  --bg-glass: rgba(255, 255, 255, 0.03);
-  
+  --bg-black: #000000;
+  --bg-near-black: #0a0a0a;
+  --bg-cream: #f0f0eb;
+  --bg-card: rgba(255, 255, 255, 0.02);
+
   /* Text */
-  --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
   --text-muted: rgba(255, 255, 255, 0.4);
-  
+  --text-dark: #1a1a1a;
+
   /* Borders */
-  --border-glow: rgba(0, 245, 255, 0.3);
-  --border-pink: rgba(255, 45, 117, 0.3);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+
+  /* Accent Gradients */
+  --gradient-accent: linear-gradient(135deg, rgba(255, 100, 200, 0.3), rgba(100, 100, 255, 0.3));
+  --gradient-subtle: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* ========== RESET & BASE ========== */
@@ -48,160 +46,106 @@ html {
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  background: var(--bg-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-black);
   color: var(--text-primary);
-  line-height: 1.7;
+  line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
-}
-
-/* ========== ANIMATED GRADIENT MESH BACKGROUND ========== */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  background: 
-    radial-gradient(ellipse 80% 80% at 20% 20%, rgba(255, 45, 117, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 60% at 80% 30%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 70% at 50% 80%, rgba(191, 0, 255, 0.12) 0%, transparent 50%),
-    var(--bg-dark);
-  animation: gradientShift 15s ease-in-out infinite alternate;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 0%, 100% 0%, 50% 100%;
-  }
-  100% {
-    background-position: 20% 20%, 80% 20%, 50% 80%;
-  }
-}
-
-/* Grid Pattern Overlay */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ========== CUSTOM SCROLLBAR ========== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: var(--bg-black);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gradient-accent);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-cyan);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* ========== TYPOGRAPHY ========== */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  position: relative;
-  display: inline-block;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 2rem;
+  font-weight: 600;
 }
 
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--gradient-accent);
-  border-radius: 2px;
-  box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-pink);
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 /* ========== SECTION STYLES ========== */
 section {
-  padding: 100px 20px;
-  max-width: 1400px;
+  padding: clamp(80px, 12vw, 140px) clamp(20px, 5vw, 80px);
+  max-width: 1600px;
   margin: 0 auto;
   position: relative;
 }
 
-/* ========== GLASSMORPHISM CARDS ========== */
+/* ========== MINIMAL CARDS ========== */
 .mat-mdc-card {
-  background: var(--bg-glass) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid var(--border-glow) !important;
-  border-radius: 20px !important;
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
   color: var(--text-primary) !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   overflow: hidden !important;
   position: relative !important;
 }
 
-.mat-mdc-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--gradient-accent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .mat-mdc-card:hover {
-  border-color: var(--neon-cyan) !important;
-  box-shadow: 
-    0 0 30px rgba(0, 245, 255, 0.2),
-    0 0 60px rgba(255, 45, 117, 0.1),
-    inset 0 0 30px rgba(0, 245, 255, 0.03) !important;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-lg) !important;
 }
 
-.mat-mdc-card:hover::before {
-  opacity: 1;
-}
-
-/* ========== NEON CHIPS - COMPREHENSIVE FIX ========== */
+/* ========== MINIMAL CHIPS ========== */
 .mat-mdc-chip,
 .mat-mdc-standard-chip,
 mat-chip {
-  background: rgba(0, 245, 255, 0.08) !important;
-  border: none !important;
-  border-radius: 25px !important;
-  transition: all 0.3s ease !important;
-  box-shadow: inset 0 0 0 1px rgba(0, 245, 255, 0.5) !important;
-  padding: 4px 12px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 20px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding: 6px 14px !important;
 }
 
 /* Remove any internal borders from Material */
@@ -212,7 +156,7 @@ mat-chip {
   outline: none !important;
 }
 
-/* Fix chip text color - target all possible text elements */
+/* Fix chip text color */
 .mat-mdc-chip .mdc-evolution-chip__text-label,
 .mat-mdc-chip .mat-mdc-chip-action-label,
 .mat-mdc-chip .mdc-evolution-chip__action--primary,
@@ -220,61 +164,48 @@ mat-chip {
 .mat-mdc-standard-chip .mdc-evolution-chip__text-label,
 mat-chip,
 mat-chip span {
-  color: #00F5FF !important;
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: 0.85rem !important;
+  color: var(--text-primary) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875rem !important;
   font-weight: 500 !important;
-  letter-spacing: 0.3px !important;
+  letter-spacing: 0.01em !important;
 }
 
 .mat-mdc-chip:hover,
 mat-chip:hover {
-  background: rgba(0, 245, 255, 0.15) !important;
-  box-shadow: inset 0 0 0 1px #00F5FF, 0 0 20px rgba(0, 245, 255, 0.3) !important;
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-2px) !important;
 }
 
-/* ========== NEON BUTTONS ========== */
-.mat-mdc-button, .mat-mdc-raised-button {
+/* ========== MINIMAL BUTTONS ========== */
+.mat-mdc-button,
+.mat-mdc-raised-button {
   background: transparent !important;
-  border: 2px solid var(--neon-pink) !important;
-  color: var(--neon-pink) !important;
-  border-radius: 30px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  padding: 12px 30px !important;
-  transition: all 0.3s ease !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  border-radius: 24px !important;
+  font-weight: 500 !important;
+  font-family: 'Inter', sans-serif !important;
+  letter-spacing: 0.02em !important;
+  padding: 12px 28px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative !important;
   overflow: hidden !important;
 }
 
-.mat-mdc-button::before, .mat-mdc-raised-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--gradient-accent);
-  transition: left 0.4s ease;
-  z-index: -1;
+.mat-mdc-button:hover,
+.mat-mdc-raised-button:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-2px) !important;
 }
 
-.mat-mdc-button:hover, .mat-mdc-raised-button:hover {
-  color: var(--bg-dark) !important;
-  box-shadow: 0 0 30px var(--neon-pink), 0 0 60px var(--neon-cyan);
-}
-
-.mat-mdc-button:hover::before, .mat-mdc-raised-button:hover::before {
-  left: 0;
-}
-
-/* ========== ANIMATIONS ========== */
+/* ========== SMOOTH ANIMATIONS ========== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -282,70 +213,86 @@ mat-chip:hover {
   }
 }
 
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-pink);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  50% {
-    box-shadow: 0 0 40px var(--neon-cyan), 0 0 80px var(--neon-pink);
-  }
-}
-
-@keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow: 
-      0 0 5px var(--neon-cyan),
-      0 0 10px var(--neon-cyan),
-      0 0 20px var(--neon-cyan),
-      0 0 40px var(--neon-pink);
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
+  to {
+    opacity: 1;
   }
 }
 
-.neon-text {
-  animation: neonFlicker 3s infinite;
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* ========== GRADIENT TEXT ========== */
-.gradient-text {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Scroll reveal utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  section {
-    padding: 60px 15px;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-  }
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ========== UTILITY CLASSES ========== */
 .container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(20px, 5vw, 80px);
 }
 
 .text-center {
   text-align: center;
 }
 
-.glow-border {
-  border: 1px solid var(--neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+.serif {
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
-.glass-effect {
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glow);
+.sans {
+  font-family: 'Inter', sans-serif;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 40px 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }

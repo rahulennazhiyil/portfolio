@@ -1,21 +1,19 @@
-/* Certificates Component - Cyberpunk Theme */
+/* Certificates Component - Minimal Editorial Design */
 
 .certificates-section {
-  padding: 100px 20px;
+  padding: clamp(80px, 12vw, 120px) clamp(20px, 5vw, 80px);
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 60px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
+  margin-bottom: 4rem;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 .certificates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -24,11 +22,11 @@
 .cert-card-link {
   text-decoration: none;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cert-card-link:not(.no-link):hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .cert-card-link.no-link {
@@ -36,36 +34,20 @@
 }
 
 .certificate-card {
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(0, 255, 136, 0.15) !important;
-  border-radius: 20px !important;
-  transition: all 0.4s ease !important;
+  padding: 28px;
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative;
   overflow: hidden;
   height: 100%;
 }
 
-.certificate-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #00ff88, transparent);
-  transition: width 0.3s ease;
-}
-
 .cert-card-link:not(.no-link):hover .certificate-card {
-  border-color: #00ff88 !important;
-  box-shadow: 0 0 40px rgba(0, 255, 136, 0.15) !important;
-}
-
-.cert-card-link:not(.no-link):hover .certificate-card::before {
-  width: 100%;
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-lg) !important;
 }
 
 /* Material Card Overrides */
@@ -78,21 +60,22 @@
   }
 
   .mat-mdc-card-avatar {
-    color: #00ff88 !important;
-    font-size: 40px !important;
-    width: 40px !important;
-    height: 40px !important;
-    margin-right: 15px !important;
-    filter: drop-shadow(0 0 10px #00ff88);
+    color: var(--text-secondary) !important;
+    font-size: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    margin-right: 12px !important;
   }
 
   .mat-mdc-card-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.1rem;
-    color: #ffffff;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
     margin: 0 !important;
     text-align: left;
     line-height: 1.4;
+    letter-spacing: -0.01em;
   }
 
   .mat-mdc-card-content {
@@ -100,11 +83,12 @@
   }
 
   .mat-mdc-card-content p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 15px;
     text-align: left;
+    font-family: 'Inter', sans-serif;
   }
 }
 
@@ -113,9 +97,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #00ff88;
-  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
   font-weight: 500;
+  font-family: 'Inter', sans-serif;
   margin-top: 10px;
   opacity: 0.7;
   transition: opacity 0.3s ease;
@@ -126,9 +111,9 @@
 }
 
 .view-indicator mat-icon {
-  font-size: 16px;
-  width: 16px;
-  height: 16px;
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
 }
 
 /* Responsive */

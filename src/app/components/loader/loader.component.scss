@@ -1,11 +1,11 @@
-/* Loader Container - Full Screen Overlay */
+/* Loader Container - Minimal Design */
 .loader-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #050505 0%, #0a0a0a 50%, #050505 100%);
+  background: var(--bg-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,14 +17,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
 }
 
-/* Animated Circles */
+/* Minimal Spinner */
 .loader-circles {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 80px;
+  height: 80px;
 }
 
 .loader-circle {
@@ -34,29 +34,30 @@
 }
 
 .circle-1 {
-  width: 200px;
-  height: 200px;
-  border-color: rgba(0, 245, 255, 0.3);
-  animation: rotate 3s linear infinite;
+  width: 80px;
+  height: 80px;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.6);
+  animation: rotate 1.2s linear infinite;
 }
 
 .circle-2 {
-  width: 150px;
-  height: 150px;
-  top: 25px;
-  left: 25px;
-  border-color: rgba(255, 45, 117, 0.3);
-  animation: rotate 2s linear infinite reverse;
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 10px;
+  border-color: transparent;
+  display: none;
 }
 
 .circle-3 {
-  width: 100px;
-  height: 100px;
-  top: 50px;
-  left: 50px;
-  border-color: rgba(191, 0, 255, 0.3);
-  background: radial-gradient(circle, rgba(191, 0, 255, 0.2), transparent);
-  animation: pulse 2s ease-in-out infinite;
+  width: 40px;
+  height: 40px;
+  top: 20px;
+  left: 20px;
+  border-color: transparent;
+  background: transparent;
+  display: none;
 }
 
 @keyframes rotate {
@@ -68,51 +69,37 @@
   }
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-}
-
 /* Loader Text */
 .loader-text {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
   display: flex;
-  gap: 8px;
+  gap: 0;
   overflow: hidden;
 }
 
 .loader-text span {
   display: inline-block;
-  background: linear-gradient(135deg, #00f5ff, #ff2d75);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+  color: var(--text-primary);
 }
 
 /* Progress Container */
 .progress-container {
-  width: 400px;
+  width: clamp(300px, 50vw, 500px);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   align-items: center;
 }
 
 .progress-bar {
   width: 100%;
-  height: 4px;
+  height: 2px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 2px;
   overflow: hidden;
   position: relative;
 }
@@ -120,10 +107,10 @@
 .progress-bar-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, #00f5ff, #ff2d75, #bf00ff);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
   position: relative;
+  transition: width 0.3s ease;
 }
 
 .progress-bar-fill::after {
@@ -131,9 +118,9 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 50px;
+  width: 40px;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5));
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
   animation: shimmer 1.5s infinite;
 }
 
@@ -147,37 +134,23 @@
 }
 
 .progress-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #00f5ff;
-  text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .loader-circles {
-    width: 150px;
-    height: 150px;
+    width: 60px;
+    height: 60px;
   }
 
   .circle-1 {
-    width: 150px;
-    height: 150px;
-  }
-
-  .circle-2 {
-    width: 110px;
-    height: 110px;
-    top: 20px;
-    left: 20px;
-  }
-
-  .circle-3 {
-    width: 70px;
-    height: 70px;
-    top: 40px;
-    left: 40px;
+    width: 60px;
+    height: 60px;
   }
 
   .loader-text {
@@ -185,6 +158,6 @@
   }
 
   .progress-container {
-    width: 300px;
+    width: 280px;
   }
 }

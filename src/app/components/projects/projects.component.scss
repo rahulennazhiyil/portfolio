@@ -1,52 +1,38 @@
-/* Projects Component - Cyberpunk Theme - Refined */
+/* Projects Component - Minimal Editorial Design */
 
 .projects-section {
-  padding: 100px 20px;
+  padding: clamp(80px, 12vw, 120px) clamp(20px, 5vw, 80px);
 }
 
 .container h2 {
   text-align: center;
   display: block;
   width: 100%;
+  font-family: 'Playfair Display', Georgia, serif;
+  margin-bottom: 4rem;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 32px;
 }
 
 .project-card {
-  padding: 35px !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 45, 117, 0.15) !important;
-  border-radius: 25px !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  padding: 36px !important;
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative;
   overflow: hidden;
 }
 
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #ff2d75, #bf00ff, #00f5ff);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .project-card:hover {
-  border-color: #ff2d75 !important;
-  box-shadow: 0 0 50px rgba(255, 45, 117, 0.2), 0 0 100px rgba(0, 245, 255, 0.1),
-    inset 0 0 50px rgba(255, 45, 117, 0.03) !important;
-}
-
-.project-card:hover::before {
-  opacity: 1;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-lg) !important;
 }
 
 /* Card Header */
@@ -55,33 +41,31 @@
 }
 
 .project-card mat-icon[mat-card-avatar] {
-  background: linear-gradient(135deg, #ff2d75, #00f5ff) !important;
-  color: #050505 !important;
-  border-radius: 15px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-primary) !important;
+  border-radius: 12px !important;
   padding: 12px !important;
-  font-size: 28px !important;
-  width: 52px !important;
-  height: 52px !important;
+  font-size: 24px !important;
+  width: 48px !important;
+  height: 48px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 0 20px rgba(255, 45, 117, 0.4);
 }
 
 .project-card .mat-mdc-card-title {
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 1.4rem !important;
-  background: linear-gradient(90deg, #ff2d75, #00f5ff) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text !important;
-  margin: 0 0 5px 0 !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  margin: 0 0 8px 0 !important;
+  letter-spacing: -0.01em !important;
 }
 
 .project-card .mat-mdc-card-subtitle {
-  color: rgba(255, 255, 255, 0.6) !important;
-  font-size: 0.9rem !important;
-  font-family: 'Space Grotesk', sans-serif !important;
+  color: var(--text-secondary) !important;
+  font-size: 0.875rem !important;
+  font-family: 'Inter', sans-serif !important;
 }
 
 /* Card Content */
@@ -90,64 +74,63 @@
 }
 
 .project-description {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--text-secondary) !important;
   font-size: 0.95rem !important;
   line-height: 1.7 !important;
-  margin-bottom: 25px !important;
-  font-family: 'Space Grotesk', sans-serif !important;
+  margin-bottom: 24px !important;
+  font-family: 'Inter', sans-serif !important;
 }
 
-/* Tech Stack Section - Key Fix */
+/* Tech Stack Section */
 .tech-stack {
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
 .tech-stack strong {
-  font-family: 'Orbitron', sans-serif !important;
-  font-size: 0.85rem !important;
-  color: #bf00ff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.75rem !important;
+  color: var(--text-secondary) !important;
   text-transform: uppercase !important;
-  letter-spacing: 2px !important;
+  letter-spacing: 0.1em !important;
   display: block !important;
-  margin-bottom: 15px !important;
-  text-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+  margin-bottom: 12px !important;
+  font-weight: 600 !important;
 }
 
 .tech-stack mat-chip-set {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 10px !important;
+  gap: 8px !important;
 }
 
-/* Tech Stack Chips - Clean and Readable */
+/* Tech Stack Chips - Minimal */
 .tech-stack mat-chip,
 .tech-stack .mat-mdc-chip {
-  background: rgba(191, 0, 255, 0.1) !important;
-  border: 1px solid rgba(191, 0, 255, 0.4) !important;
-  border-radius: 9px !important;
-  padding: 6px 14px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 14px !important;
+  padding: 5px 12px !important;
   height: auto !important;
-  min-height: 32px !important;
-  transition: all 0.3s ease !important;
+  min-height: 28px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Tech Stack Chip Text - Key Fix */
+/* Tech Stack Chip Text */
 .tech-stack .mat-mdc-chip .mdc-evolution-chip__text-label,
 .tech-stack .mat-mdc-chip .mat-mdc-chip-action-label,
 .tech-stack mat-chip {
-  font-family: 'Space Grotesk', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 0.8rem !important;
   font-weight: 500 !important;
-  color: #bf00ff !important;
-  letter-spacing: 0.3px !important;
+  color: var(--text-primary) !important;
+  letter-spacing: 0.01em !important;
   line-height: 1.4 !important;
 }
 
 .tech-stack mat-chip:hover,
 .tech-stack .mat-mdc-chip:hover {
-  background: rgba(191, 0, 255, 0.25) !important;
-  border-color: #bf00ff !important;
-  box-shadow: 0 0 15px rgba(191, 0, 255, 0.5) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--border-hover) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -155,73 +138,58 @@
 .project-highlights {
   list-style: none !important;
   padding: 0 !important;
-  margin: 0 !important;
+  margin: 0 0 20px 0 !important;
 }
 
 .project-highlights li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
   line-height: 1.6;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .project-highlights li::before {
-  content: '◆';
+  content: '•';
   position: absolute;
   left: 0;
-  color: #ff2d75;
-  font-size: 0.6rem;
-  top: 5px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  top: 0;
 }
 
 /* Project Link */
 .project-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   padding: 10px 20px;
   background: transparent;
-  border: 2px solid #ff2d75;
-  color: #ff2d75;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
   text-decoration: none;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  margin-top: 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 12px;
   position: relative;
   overflow: hidden;
 }
 
-.project-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, #00f5ff, #ff2d75);
-  transition: left 0.4s ease;
-  z-index: -1;
-}
-
 .project-link:hover {
-  color: #050505;
-  border-color: transparent;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-hover);
   transform: translateY(-2px);
 }
 
-.project-link:hover::before {
-  left: 0;
-}
-
 .project-link mat-icon {
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 /* Responsive */
@@ -231,10 +199,10 @@
   }
 
   .project-card {
-    padding: 25px !important;
+    padding: 28px !important;
   }
 
   .project-card .mat-mdc-card-title {
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
   }
 }

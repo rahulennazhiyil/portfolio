@@ -1,12 +1,13 @@
-/* Experience Component - Cyberpunk Theme */
+/* Experience Component - Minimal Editorial Design */
 
 .experience-section {
-  padding: 100px 20px;
+  padding: clamp(80px, 12vw, 120px) clamp(20px, 5vw, 80px);
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 4rem;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 .timeline {
@@ -22,10 +23,8 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
-  border-radius: 3px;
-  box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-pink);
+  width: 1px;
+  background: var(--border-subtle);
 }
 
 .experience-item {
@@ -36,50 +35,47 @@
 .experience-item::before {
   content: '';
   position: absolute;
-  left: -48px;
+  left: -44px;
   top: 30px;
-  width: 18px;
-  height: 18px;
-  background: var(--bg-dark);
-  border: 3px solid var(--neon-cyan);
+  width: 8px;
+  height: 8px;
+  background: var(--text-primary);
   border-radius: 50%;
-  box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
   z-index: 1;
 }
 
 .experience-item mat-card {
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(0, 245, 255, 0.15) !important;
-  border-radius: 20px !important;
-  transition: all 0.4s ease !important;
+  padding: 32px;
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .experience-item mat-card:hover {
-  border-color: var(--neon-pink) !important;
-  box-shadow: 
-    0 0 40px rgba(255, 45, 117, 0.15),
-    inset 0 0 40px rgba(255, 45, 117, 0.02) !important;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-lg) !important;
 }
 
 mat-card-title {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.4rem;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
 mat-card-subtitle {
   color: var(--text-secondary) !important;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 mat-card-subtitle span {
@@ -89,10 +85,10 @@ mat-card-subtitle span {
 }
 
 mat-card-subtitle mat-icon {
-  color: var(--neon-pink);
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 mat-card-content ul {
@@ -103,18 +99,20 @@ mat-card-content ul {
 
 mat-card-content li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 12px;
+  padding-left: 20px;
+  margin-bottom: 10px;
   color: var(--text-secondary);
   line-height: 1.6;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
 }
 
 mat-card-content li::before {
-  content: '▹';
+  content: '•';
   position: absolute;
   left: 0;
-  color: var(--neon-cyan);
-  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -123,8 +121,8 @@ mat-card-content li::before {
   }
 
   .experience-item::before {
-    left: -33px;
-    width: 14px;
-    height: 14px;
+    left: -29px;
+    width: 6px;
+    height: 6px;
   }
 }

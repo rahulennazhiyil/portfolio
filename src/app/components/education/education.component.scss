@@ -1,67 +1,57 @@
-/* Education Component - Cyberpunk Theme */
+/* Education Component - Minimal Editorial Design */
 
 .education-section {
-  padding: 100px 20px;
+  padding: clamp(80px, 12vw, 120px) clamp(20px, 5vw, 80px);
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 4rem;
+  font-family: 'Playfair Display', Georgia, serif;
 }
 
 .education-card {
   max-width: 700px;
   margin: 0 auto;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.02) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(191, 0, 255, 0.2) !important;
-  border-radius: 25px !important;
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
   text-align: center;
-  transition: all 0.4s ease !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative;
   overflow: hidden;
 }
 
-.education-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
-  box-shadow: 0 0 20px var(--neon-purple);
-}
-
 .education-card:hover {
-  border-color: var(--neon-purple) !important;
-  box-shadow: 0 0 50px rgba(191, 0, 255, 0.2) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-lg) !important;
+  transform: translateY(-4px);
 }
 
 .education-icon {
-  font-size: 60px !important;
-  width: 60px !important;
-  height: 60px !important;
-  color: var(--neon-purple) !important;
+  font-size: 48px !important;
+  width: 48px !important;
+  height: 48px !important;
+  color: var(--text-secondary) !important;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 20px var(--neon-purple));
 }
 
 .degree {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.5rem;
-  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
 .university {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 15px;
+  font-family: 'Inter', sans-serif;
 }
 
 .duration {
@@ -70,12 +60,13 @@
   justify-content: center;
   gap: 8px;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .duration mat-icon {
-  color: var(--neon-pink);
-  font-size: 18px;
-  width: 18px;
-  height: 18px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }

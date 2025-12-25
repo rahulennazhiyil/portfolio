@@ -1,5 +1,6 @@
 import { Injectable, ElementRef } from '@angular/core';
 import * as THREE from 'three';
+import { ThreeModelsService } from './three-models.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +10,13 @@ export class ThreeSceneService {
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
   private particles!: THREE.Points;
+  private angularLogo!: THREE.Mesh;
   private animationId: number | null = null;
   private mouse = { x: 0, y: 0 };
   private targetRotation = { x: 0, y: 0 };
   private currentRotation = { x: 0, y: 0 };
 
-  constructor() {}
+  constructor(private modelsService: ThreeModelsService) {}
 
   initScene(container: ElementRef<HTMLDivElement>) {
     const width = container.nativeElement.offsetWidth;
@@ -25,7 +27,7 @@ export class ThreeSceneService {
 
     // Camera setup
     this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    this.camera.position.z = 50;
+    this.camera.position.z = 30;
 
     // Renderer setup
     this.renderer = new THREE.WebGLRenderer({
@@ -36,47 +38,34 @@ export class ThreeSceneService {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.nativeElement.appendChild(this.renderer.domElement);
 
-    // Create particles
-    this.createParticles();
+    // Create gradient particles
+    this.particles = this.modelsService.createGradientParticles(800);
+    this.scene.add(this.particles);
 
-    // Add ambient light
+    // Create Angular logo
+    this.angularLogo = this.modelsService.createAngularLogo(3);
+    this.angularLogo.position.set(0, 0, -5);
+    this.scene.add(this.angularLogo);
+
+    // Add lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     this.scene.add(ambientLight);
 
-    // Add point light
-    const pointLight = new THREE.PointLight(0xffffff, 1);
-    pointLight.position.set(10, 10, 10);
-    this.scene.add(pointLight);
+    const pointLight1 = new THREE.PointLight(0x6366f1, 2);
+    pointLight1.position.set(10, 10, 10);
+    this.scene.add(pointLight1);
+
+    const pointLight2 = new THREE.PointLight(0x8b5cf6, 2);
+    pointLight2.position.set(-10, -10, 10);
+    this.scene.add(pointLight2);
 
     // Start animation
     this.animate();
 
     // Handle resize
     window.addEventListener('resize', () => this.onWindowResize(container));
-  }
 
-  private createParticles() {
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 1000;
-    const posArray = new Float32Array(particlesCount * 3);
-
-    for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 100;
-    }
-
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-    // Particle material
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.15,
-      color: 0xffffff,
-      transparent: true,
-      opacity: 0.6,
-      blending: THREE.AdditiveBlending,
-    });
-
-    this.particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    this.scene.add(this.particles);
+    console.log('✅ Three.js scene initialized with themed models');
   }
 
   private animate = () => {
@@ -87,9 +76,17 @@ export class ThreeSceneService {
     this.currentRotation.y += (this.targetRotation.y - this.currentRotation.y) * 0.05;
 
     // Rotate particles
-    this.particles.rotation.x = this.currentRotation.x * 0.3;
-    this.particles.rotation.y = this.currentRotation.y * 0.3;
-    this.particles.rotation.z += 0.0005;
+    if (this.particles) {
+      this.particles.rotation.x = this.currentRotation.x * 0.2;
+      this.particles.rotation.y = this.currentRotation.y * 0.2;
+      this.particles.rotation.z += 0.0003;
+    }
+
+    // Rotate Angular logo
+    if (this.angularLogo) {
+      this.angularLogo.rotation.y += 0.005;
+      this.angularLogo.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+    }
 
     // Render
     this.renderer.render(this.scene, this.camera);
@@ -100,13 +97,17 @@ export class ThreeSceneService {
     this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-    this.targetRotation.x = this.mouse.y * Math.PI;
-    this.targetRotation.y = this.mouse.x * Math.PI;
+    this.targetRotation.x = this.mouse.y * Math.PI * 0.5;
+    this.targetRotation.y = this.mouse.x * Math.PI * 0.5;
   }
 
   onScroll(scrollY: number) {
     if (this.particles) {
-      this.particles.position.y = scrollY * 0.05;
+      this.particles.position.y = scrollY * 0.03;
+    }
+    if (this.angularLogo) {
+      this.angularLogo.position.y = scrollY * 0.02;
+      this.angularLogo.rotation.z = scrollY * 0.001;
     }
   }
 
@@ -130,5 +131,10 @@ export class ThreeSceneService {
       this.particles.geometry.dispose();
       (this.particles.material as THREE.Material).dispose();
     }
+    if (this.angularLogo) {
+      this.angularLogo.geometry.dispose();
+      (this.angularLogo.material as THREE.Material).dispose();
+    }
+    console.log('🛑 Three.js scene destroyed');
   }
 }

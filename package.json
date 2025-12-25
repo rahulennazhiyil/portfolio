@@ -39,6 +39,7 @@
     "gsap": "^3.14.2",
     "rxjs": "~7.8.0",
     "three": "^0.182.0",
+    "three-stdlib": "^2.36.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

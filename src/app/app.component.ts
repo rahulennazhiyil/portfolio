@@ -14,6 +14,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GsapAnimationsService } from './services/gsap-animations.service';
 import { SmoothScrollService } from './services/smooth-scroll.service';
+import { CursorService } from './services/cursor.service';
 
 @Component({
   selector: 'app-root',
@@ -41,10 +42,14 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private gsapService: GsapAnimationsService,
-    private smoothScrollService: SmoothScrollService
+    private smoothScrollService: SmoothScrollService,
+    private cursorService: CursorService
   ) {}
 
   ngAfterViewInit() {
+    // Initialize custom cursor
+    this.cursorService.init();
+
     // Initialize smooth scroll
     this.smoothScrollService.init();
 
@@ -60,6 +65,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.smoothScrollService.destroy();
+    this.cursorService.destroy();
   }
 
   onLoadingComplete() {

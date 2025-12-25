@@ -6,32 +6,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 @import '@angular/material/prebuilt-themes/azure-blue.css';
 
-/* ========== COLOR PALETTE ========== */
+/* ========== ENHANCED COLOR PALETTE ========== */
 :root {
   /* Backgrounds */
   --bg-black: #000000;
   --bg-near-black: #0a0a0a;
+  --bg-dark: #0f0f0f;
   --bg-cream: #f0f0eb;
-  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-card-hover: rgba(255, 255, 255, 0.05);
 
   /* Text */
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-secondary: rgba(255, 255, 255, 0.65);
   --text-muted: rgba(255, 255, 255, 0.4);
   --text-dark: #1a1a1a;
 
-  /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-hover: rgba(255, 255, 255, 0.2);
+  /* Accent Colors */
+  --accent-primary: #6366f1; /* Indigo */
+  --accent-secondary: #8b5cf6; /* Purple */
+  --accent-tertiary: #ec4899; /* Pink */
+  --accent-cyan: #06b6d4; /* Cyan */
+  --accent-emerald: #10b981; /* Emerald */
 
-  /* Accent Gradients */
-  --gradient-accent: linear-gradient(135deg, rgba(255, 100, 200, 0.3), rgba(100, 100, 255, 0.3));
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --border-accent: rgba(99, 102, 241, 0.3);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+  --gradient-mesh: radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
   --gradient-subtle: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  --gradient-text: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-accent: 0 8px 32px rgba(99, 102, 241, 0.2);
+  --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
 }
 
 /* ========== RESET & BASE ========== */
@@ -42,18 +61,63 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Let Lenis handle smooth scroll */
+  cursor: none; /* Hide default cursor */
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg-black);
+  background-image: var(--gradient-mesh);
+  background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.hovering {
+  border-color: rgba(99, 102, 241, 1);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
+}
+
+/* Show default cursor on mobile */
+@media (max-width: 768px) {
+  html,
+  body {
+    cursor: auto !important;
+  }
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none !important;
+  }
 }
 
 /* ========== CUSTOM SCROLLBAR ========== */

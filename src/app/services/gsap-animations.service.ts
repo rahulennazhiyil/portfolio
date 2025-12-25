@@ -434,4 +434,33 @@ export class GsapAnimationsService {
       }
     );
   }
+
+  // Text reveal animation (character by character)
+  revealText(selector: string) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach((element) => {
+      const text = element.textContent || '';
+      element.innerHTML = text
+        .split('')
+        .map(
+          (char) =>
+            `<span style="display:inline-block;opacity:0">${char === ' ' ? '&nbsp;' : char}</span>`
+        )
+        .join('');
+
+      const chars = element.querySelectorAll('span');
+      gsap.to(chars, {
+        opacity: 1,
+        y: 0,
+        duration: 0.05,
+        stagger: 0.03,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+  }
 }

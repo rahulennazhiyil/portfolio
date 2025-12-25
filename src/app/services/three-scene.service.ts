@@ -10,7 +10,6 @@ export class ThreeSceneService {
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
   private particles!: THREE.Points;
-  private angularLogo!: THREE.Mesh;
   private animationId: number | null = null;
   private mouse = { x: 0, y: 0 };
   private targetRotation = { x: 0, y: 0 };
@@ -41,11 +40,6 @@ export class ThreeSceneService {
     // Create gradient particles
     this.particles = this.modelsService.createGradientParticles(800);
     this.scene.add(this.particles);
-
-    // Create Angular logo
-    this.angularLogo = this.modelsService.createAngularLogo(3);
-    this.angularLogo.position.set(0, 0, -5);
-    this.scene.add(this.angularLogo);
 
     // Add lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -82,12 +76,6 @@ export class ThreeSceneService {
       this.particles.rotation.z += 0.0003;
     }
 
-    // Rotate Angular logo
-    if (this.angularLogo) {
-      this.angularLogo.rotation.y += 0.005;
-      this.angularLogo.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
-    }
-
     // Render
     this.renderer.render(this.scene, this.camera);
   };
@@ -104,10 +92,6 @@ export class ThreeSceneService {
   onScroll(scrollY: number) {
     if (this.particles) {
       this.particles.position.y = scrollY * 0.03;
-    }
-    if (this.angularLogo) {
-      this.angularLogo.position.y = scrollY * 0.02;
-      this.angularLogo.rotation.z = scrollY * 0.001;
     }
   }
 
@@ -130,10 +114,6 @@ export class ThreeSceneService {
     if (this.particles) {
       this.particles.geometry.dispose();
       (this.particles.material as THREE.Material).dispose();
-    }
-    if (this.angularLogo) {
-      this.angularLogo.geometry.dispose();
-      (this.angularLogo.material as THREE.Material).dispose();
     }
     console.log('🛑 Three.js scene destroyed');
   }

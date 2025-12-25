@@ -60,6 +60,14 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.gsapService.animateImageReveal();
       this.gsapService.animateTextReveal();
       this.gsapService.animateScrollProgress();
+
+      // Animated text reveals
+      this.gsapService.revealText('.section-title');
+      this.gsapService.revealText('h2');
+
+      // Advanced motion design
+      this.gsapService.createCardTilt('.mat-mdc-card', 8);
+      this.gsapService.staggerFadeIn('.skill-chip', 0.05);
     }, 100);
   }
 

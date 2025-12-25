@@ -1,46 +1,287 @@
-/* Footer Component - Minimal Design */
+/* Enhanced Footer - Multi-Column Layout */
 
 .footer {
-  padding: 60px 20px;
-  text-align: center;
+  background: var(--bg-near-black);
+  border-top: 1px solid var(--border-subtle);
+  padding: clamp(60px, 10vw, 100px) 0 30px;
   position: relative;
   overflow: hidden;
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--border-subtle);
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
 }
 
-.footer-content {
+/* Footer Grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(30px, 5vw, 60px);
+  margin-bottom: 60px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Headings */
+.footer-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.footer-column h4.footer-heading {
+  font-size: 1.1rem;
+}
+
+/* Description */
+.footer-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+/* Social Links */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  transform: translateY(-3px);
+}
+
+.social-link mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  display: inline-block;
   position: relative;
-  z-index: 1;
+}
+
+.footer-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-links li a:hover {
+  color: var(--text-primary);
+  transform: translateX(5px);
+}
+
+.footer-links li a:hover::after {
+  width: 100%;
+}
+
+/* Contact Info */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-contact li mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: var(--text-secondary);
+}
+
+.footer-contact li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact li a:hover {
+  color: var(--text-primary);
+}
+
+/* Tech Badges */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .copyright {
-  font-family: 'Inter', sans-serif;
   color: var(--text-secondary);
-  font-size: 0.875rem;
-  margin-bottom: 12px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  margin: 0 0 8px 0;
 }
 
-.copyright .name {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-.tech-stack {
-  font-size: 0.8rem;
+.footer-tagline {
   color: var(--text-muted);
+  font-size: 0.85rem;
   font-family: 'Inter', sans-serif;
+  font-style: italic;
+  margin: 0;
 }
 
-.tech-stack span {
-  color: var(--text-secondary);
-  font-weight: 500;
+/* Back to Top Button */
+.back-to-top {
+  position: fixed !important;
+  bottom: 30px;
+  right: 30px;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: var(--border-hover) !important;
+  transform: translateY(-5px) !important;
+}
+
+.back-to-top mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    padding-top: 30px;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 50px 0 20px;
+  }
+
+  .footer-grid {
+    gap: 30px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-link mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
 }

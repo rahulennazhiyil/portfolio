@@ -1,7 +1,17 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  inject,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  HostListener,
+} from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ThreeSceneService } from '../../services/three-scene.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +19,12 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('threeCanvas', { static: false }) threeCanvas!: ElementRef<HTMLDivElement>;
+
   private viewportScroller = inject(ViewportScroller);
+  private threeSceneService = inject(ThreeSceneService);
+
   roles: string[] = ['Frontend Developer', 'Angular Expert', 'Tech Enthusiast', 'Problem Solver'];
 
   currentRoleIndex = 0;
@@ -25,10 +39,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.startCycle();
   }
 
+  ngAfterViewInit() {
+    // Initialize Three.js scene after view is ready
+    if (this.threeCanvas) {
+      this.threeSceneService.initScene(this.threeCanvas);
+    }
+  }
+
   ngOnDestroy() {
     if (this.animationTimeout) {
       clearTimeout(this.animationTimeout);
     }
+    this.threeSceneService.destroy();
+  }
+
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    if (this.threeCanvas) {
+      this.threeSceneService.onMouseMove(event, this.threeCanvas);
+    }
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll() {
+    const scrollY = window.pageYOffset;
+    this.threeSceneService.onScroll(scrollY);
   }
 
   startCycle() {

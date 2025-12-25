@@ -91,22 +91,114 @@ export class GsapAnimationsService {
     return tl;
   }
 
-  // Parallax effect for sections
+  // Enhanced Parallax effect for sections
   animateParallax() {
     const sections = document.querySelectorAll('section');
 
     sections.forEach((section) => {
-      gsap.to(section, {
-        yPercent: -10,
+      // Parallax background elements
+      const bgElements = section.querySelectorAll('.parallax-bg');
+      if (bgElements.length > 0) {
+        gsap.to(bgElements, {
+          yPercent: -20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5,
+          },
+        });
+      }
+
+      // Parallax content elements
+      const contentElements = section.querySelectorAll('.parallax-content');
+      if (contentElements.length > 0) {
+        gsap.to(contentElements, {
+          y: -50,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 2,
+          },
+        });
+      }
+    });
+  }
+
+  // Image reveal with clip-path
+  animateImageReveal() {
+    const images = document.querySelectorAll('.reveal-image');
+
+    images.forEach((img) => {
+      gsap.fromTo(
+        img,
+        {
+          clipPath: 'inset(0% 100% 0% 0%)',
+        },
+        {
+          clipPath: 'inset(0% 0% 0% 0%)',
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: img,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    });
+  }
+
+  // Staggered text reveal
+  animateTextReveal() {
+    const textElements = document.querySelectorAll('.reveal-text');
+
+    textElements.forEach((element) => {
+      const words = element.textContent?.split(' ') || [];
+      element.innerHTML = words.map((word) => `<span class="word">${word}</span>`).join(' ');
+
+      const wordElements = element.querySelectorAll('.word');
+
+      gsap.fromTo(
+        wordElements,
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.05,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    });
+  }
+
+  // Scroll progress indicator
+  animateScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    if (progressBar) {
+      gsap.to(progressBar, {
+        scaleX: 1,
         ease: 'none',
         scrollTrigger: {
-          trigger: section,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.5,
         },
       });
-    });
+    }
   }
 
   // Skill chips animation - Minimal fade-up

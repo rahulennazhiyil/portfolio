@@ -1,7 +1,8 @@
-import { Component, HostListener, AfterViewInit } from '@angular/core';
+import { Component, HostListener, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { NavbarComponent } from './components/navbar/navbar';
 import { HeaderComponent } from './components/header/header.component';
 import { ProfileSummaryComponent } from './components/profile-summary/profile-summary.component';
 import { SkillsComponent } from './components/skills/skills.component';
@@ -13,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GsapAnimationsService } from './services/gsap-animations.service';
+import { SmoothScrollService } from './services/smooth-scroll.service';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,7 @@ import { GsapAnimationsService } from './services/gsap-animations.service';
     CommonModule,
     MatIconModule,
     MatButtonModule,
+    NavbarComponent,
     HeaderComponent,
     ProfileSummaryComponent,
     SkillsComponent,
@@ -34,29 +37,31 @@ import { GsapAnimationsService } from './services/gsap-animations.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnDestroy {
   title = 'Rahul E - Portfolio';
-  isScrolled = false;
-  menuOpen = false;
   isLoading = true;
 
-  constructor(private gsapService: GsapAnimationsService) {}
+  constructor(
+    private gsapService: GsapAnimationsService,
+    private smoothScrollService: SmoothScrollService
+  ) {}
 
   ngAfterViewInit() {
-    this.gsapService.initAllAnimations();
+    // Initialize smooth scroll
+    this.smoothScrollService.init();
+
+    // Initialize all GSAP animations
+    setTimeout(() => {
+      this.gsapService.initAllAnimations();
+      this.gsapService.animateParallax();
+      this.gsapService.animateImageReveal();
+      this.gsapService.animateTextReveal();
+      this.gsapService.animateScrollProgress();
+    }, 100);
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
-  }
-
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-
-  closeMenu() {
-    this.menuOpen = false;
+  ngOnDestroy() {
+    this.smoothScrollService.destroy();
   }
 
   onLoadingComplete() {

@@ -1,0 +1,35 @@
+<nav class="navbar" [class.scrolled]="isScrolled" [class.hidden]="isHidden">
+    <div class="navbar-container">
+        <!-- Logo/Name -->
+        <a href="#home" class="navbar-logo" (click)="scrollToSection('home', $event)">
+            <span class="logo-text">Rahul E</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-links desktop-nav">
+            <li *ngFor="let link of navLinks">
+                <a [href]="link.href" [class.active]="activeSection === link.id"
+                    (click)="scrollToSection(link.id, $event)">
+                    {{ link.label }}
+                </a>
+            </li>
+        </ul>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.open]="isMobileMenuOpen" mat-icon-button>
+            <mat-icon>{{ isMobileMenuOpen ? 'close' : 'menu' }}</mat-icon>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" [class.open]="isMobileMenuOpen">
+        <ul class="nav-links">
+            <li *ngFor="let link of navLinks">
+                <a [href]="link.href" [class.active]="activeSection === link.id"
+                    (click)="scrollToSection(link.id, $event)">
+                    {{ link.label }}
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

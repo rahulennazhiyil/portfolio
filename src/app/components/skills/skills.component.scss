@@ -14,25 +14,43 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .skill-category {
-  padding: 32px !important;
+  padding: 40px !important;
   background: var(--bg-card) !important;
   backdrop-filter: blur(10px) !important;
   border: 1px solid var(--border-subtle) !important;
-  border-radius: 16px !important;
+  border-radius: 20px !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   position: relative;
   overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 }
 
 .skill-category:hover {
   border-color: var(--border-hover) !important;
-  transform: translateY(-4px) !important;
-  box-shadow: var(--shadow-lg) !important;
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+
+  &::before {
+    opacity: 1;
+  }
 }
 
 /* Card Title Styling */

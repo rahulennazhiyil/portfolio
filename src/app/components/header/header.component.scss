@@ -76,12 +76,12 @@
 }
 
 .name {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.05;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
   text-shadow: 0 2px 20px rgba(99, 102, 241, 0.3);
   animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;

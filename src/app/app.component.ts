@@ -7,7 +7,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProfileSummaryComponent } from './components/profile-summary/profile-summary.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ExperienceComponent } from './components/experience/experience.component';
-import { EducationComponent } from './components/education/education.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CertificatesComponent } from './components/certificates/certificates.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -27,7 +26,6 @@ import { SmoothScrollService } from './services/smooth-scroll.service';
     ProfileSummaryComponent,
     SkillsComponent,
     ExperienceComponent,
-    EducationComponent,
     ProjectsComponent,
     CertificatesComponent,
     ContactComponent,
